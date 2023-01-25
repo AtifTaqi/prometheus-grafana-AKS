@@ -7,3 +7,4 @@ resources:
   - resources/pvc_prom.yml
   - resources/configmap_prom.yml
   - resources/deployment_prom.yml
+  #test
