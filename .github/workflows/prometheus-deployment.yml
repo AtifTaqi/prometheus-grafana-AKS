@@ -40,4 +40,4 @@ jobs:
           kubectl create namespace monitoring
           kubectl apply -k github.com/AtifTaqi/Prometheus/kustomization
           
-          #test
+          #test3
