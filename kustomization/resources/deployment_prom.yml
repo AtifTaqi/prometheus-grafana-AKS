@@ -1,3 +1,5 @@
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,11 +17,10 @@ spec:
         env: metrics
     spec:
       containers:
-      - image: prom/prometheus
+      - image: dakshjain09/prometheus:v1
         name: prom
         args:
         - '--config.file=/prometheus.yml'
-        - --storage.tsdb.path='prometheus_data/
         ports:
         - containerPort: 9090
         volumeMounts:
@@ -31,7 +32,7 @@ spec:
       volumes:
       - name: prometheus-persistent-storage-store
         persistentVolumeClaim:
-          claimName: prom-storage-pvc
+          claimName: prom-store-pvc
       - name: prometheus-script
         configMap:
-          name: prom-config
+          name: prom-script

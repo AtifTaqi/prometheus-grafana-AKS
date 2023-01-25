@@ -1,12 +1,13 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: prom-storage-pvc
+  name: prom-store-pvc
   labels:
-    vol: prom-storage
+    vol: prom-store
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 20Gi
