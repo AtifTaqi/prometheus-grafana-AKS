@@ -54,7 +54,7 @@ jobs:
          
       - uses: Azure/k8s-deploy@v1
         with:
-         namespace: 'webapp'
+         namespace: 'monitoring'
          manifests: |
             prometheus/kustomization/resources/svc_prom.yml
             prometheus/kustomization/resources/pvc_prom.yml
