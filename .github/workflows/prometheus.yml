@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    name: prometheus
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code 
@@ -36,7 +37,7 @@ jobs:
          username: ${{ secrets.AZURE_REGISTRY_NAME }}
          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
       - run: |
-         docker build . -t ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/prometheus:${{ github.sha }}
+         docker build prometheus -t ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/prometheus:${{ github.sha }}
          docker push ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/prometheus:${{ github.sha }}
      
       - name: Set AKS context
