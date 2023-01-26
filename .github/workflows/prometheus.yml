@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-  name: prometheus
   build:
     runs-on: ubuntu-latest
     steps:
@@ -64,5 +63,5 @@ jobs:
          username: ${{ secrets.AZURE_REGISTRY_NAME }}
          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
          images: |
-            ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/podinfo:${{ github.sha }}
+            ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/prometheus:${{ github.sha }}
 
