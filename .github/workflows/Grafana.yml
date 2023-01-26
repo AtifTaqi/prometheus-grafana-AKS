@@ -56,9 +56,10 @@ jobs:
         with:
          namespace: 'webapp'
          manifests: |
-            prometheus-grafana-AKS/grafana/kustomization/kustomization.yml
-          
-     
+            prometheus-grafana-AKS/grafana/kustomization/resources/svc_grafana.yml
+            prometheus-grafana-AKS/grafana/kustomization/resources/pvc_grafana.yml
+            prometheus-grafana-AKS/grafana/kustomization/resources/deployment_grafana.yml
+  
    
          login-server: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}
          username: ${{ secrets.AZURE_REGISTRY_NAME }}
