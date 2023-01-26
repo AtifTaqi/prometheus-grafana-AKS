@@ -37,7 +37,7 @@ jobs:
          username: ${{ secrets.AZURE_REGISTRY_NAME }}
          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
       - run: |
-         docker build . -t ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/grafana:${{ github.sha }}
+         docker build . -t ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/grafana:${{ github.sha }} grafana/Dockerfile #here i am defining the path of the Dockerfile
          docker push ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/grafana:${{ github.sha }}
      
       - name: Set AKS context
