@@ -8,7 +8,7 @@ spec:
     env: metrics
   type: NodePort
   ports:
-  - nodePort: 31002
+  - nodePort: 31102
     port: 9090
     targetPort: 9090
     #test
