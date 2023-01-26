@@ -17,7 +17,7 @@ spec:
         env: metrics
     spec:
       containers:
-      - image: dakshjain09/prometheus:v1
+      - image: atiftaqi/prometheus:prometheus1.1
         name: prom
         args:
         - '--config.file=/prometheus.yml'
