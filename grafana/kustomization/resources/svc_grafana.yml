@@ -8,6 +8,6 @@ spec:
     env: visuals
   type: NodePort
   ports:
-  - nodePort: 31210
+  - nodePort: 30210
     port: 3000
     targetPort: 3000
