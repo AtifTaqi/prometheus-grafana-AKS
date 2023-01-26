@@ -54,7 +54,7 @@ jobs:
          
       - uses: Azure/k8s-deploy@v1
         with:
-         namespace: 'webapp'
+         namespace: 'monitoring'
          manifests: |
             grafana/kustomization/resources/svc_grafana.yml
             grafana/kustomization/resources/pvc_grafana.yml
