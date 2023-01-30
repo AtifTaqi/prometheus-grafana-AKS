@@ -56,17 +56,18 @@ jobs:
         with:
          namespace: 'monitoring'
          manifests: |
-            prometheus/kustomization/resources/svc_prom.yml
             prometheus/kustomization/resources/pvc_prom.yml
-            prometheus/kustomization/resources/configmap_prom.yml
-            prometheus/kustomization/resources/deployment_prom.yml
-            prometheus/kustomization/resources/ClusterRoleBinding_prom.yml
             prometheus/kustomization/resources/cluster-role_prom.yml
-            prometheus/kustomization/resources/pod-role_prom.yml
+            prometheus/kustomization/resources/service-account_prom.yml
+            prometheus/kustomization/resources/ClusterRoleBinding_prom.yml
+            prometheus/kustomization/resources/configmap_prom.yml
             prometheus/kustomization/resources/scrape-kubelet_prom.yml
-            prometheus/kustomization/resources/scrape-pods_prom.yml
-            prometheus/kustomization/resources/scrape_APIServer_prom.yml
             prometheus/kustomization/resources/scrape_cAdvisor_prom.yml
+            prometheus/kustomization/resources/scrape_APIServer_prom.yml
+            prometheus/kustomization/resources/scrape-pods_prom.yml
+            prometheus/kustomization/resources/pod-role_prom.yml
+            prometheus/kustomization/resources/deployment_prom.yml
+            prometheus/kustomization/resources/service_prom.yml
    
          login-server: ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}
          username: ${{ secrets.AZURE_REGISTRY_NAME }}
