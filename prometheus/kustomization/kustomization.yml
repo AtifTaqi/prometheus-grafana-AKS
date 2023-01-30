@@ -8,4 +8,11 @@ resources:
   - resources/pvc_prom.yml
   - resources/configmap_prom.yml
   - resources/deployment_prom.yml
-  #test1
+  - resources/ClusterRoleBinding_prom.yml
+  - resources/cluster-role_prom.yml
+  - resources/pod-role_prom.yml
+  - resources/scrape-kubelet_prom.yml
+  - resources/scrape-pods_prom.yml
+  - resources/scrape_APIServer_prom.yml
+  - resources/scrape_cAdvisor_prom.yml
+
