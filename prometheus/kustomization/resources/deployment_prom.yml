@@ -1,38 +1,49 @@
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus
+  namespace: monitoring
   labels:
-    env: metrics
+    app: prometheus
 spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
   selector:
     matchLabels:
-      env: metrics
+      app: prometheus
   template:
     metadata:
-      name: prometheus
       labels:
-        env: metrics
+        app: prometheus
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
     spec:
       containers:
-      - image: atiftaqi/prometheus:prometheus1.1
-        name: prom
+      - name: prometheus
+        image: prom/prometheus
         args:
-        - '--config.file=/prometheus.yml'
+          - '--storage.tsdb.retention=6h'
+          - '--storage.tsdb.path=/prometheus'
+          - '--config.file=/etc/prometheus/prometheus.yml'
         ports:
-        - containerPort: 9090
+        - name: web
+          containerPort: 9090
         volumeMounts:
-        - name: prometheus-persistent-storage-store
-          mountPath: prometheus_data/
-        - name: prometheus-script
-          mountPath: /prometheus.yml
-          subPath: prometheus.yml  
+        - name: prometheus-config-volume
+          mountPath: /etc/prometheus
+        - name: prometheus-storage-volume
+          mountPath: /prometheus
+      restartPolicy: Always
       volumes:
-      - name: prometheus-persistent-storage-store
-        persistentVolumeClaim:
-          claimName: prom-store-pvc
-      - name: prometheus-script
+      - name: prometheus-config-volume
         configMap:
-          name: prom-script
+            defaultMode: 420
+            name: prometheus-config
+      - name: prometheus-storage-volume
+        persistentVolumeClaim:
+            claimName: pvc-nfs-data
