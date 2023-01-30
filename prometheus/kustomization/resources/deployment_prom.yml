@@ -40,10 +40,10 @@ spec:
           mountPath: /prometheus
       restartPolicy: Always
       volumes:
-      - name: prometheus-config-volume
+      - name: prom-store
         configMap:
             defaultMode: 420
             name: prometheus-config
       - name: prometheus-storage-volume
         persistentVolumeClaim:
-            claimName: pvc-nfs-data
+            claimName: prom-store-pvc
