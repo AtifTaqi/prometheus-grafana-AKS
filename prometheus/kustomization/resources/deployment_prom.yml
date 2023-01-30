@@ -36,6 +36,3 @@ spec:
       - name: prometheus-script
         configMap:
           name: prom-script
-      resources:
-    requests:
-      storage: 20Gi
