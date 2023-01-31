@@ -22,7 +22,7 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9090"
-  spec:
+    spec:
     containers:
       - image: atiftaqi/prometheus:prometheus1.1
         name: prom
