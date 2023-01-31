@@ -14,7 +14,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 192.168.49.1
-    path: "/mnt/nfs/promdata"
+    path: "/etc/exports"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
