@@ -36,7 +36,7 @@ spec:
         - name: prometheus-script
           mountPath: /prometheus.yml
           subPath: prometheus.yml  
-  volumes:
+    volumes:
       - name: prometheus-persistent-storage-store
         persistentVolumeClaim:
           claimName: prom-store-pvc
