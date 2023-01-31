@@ -74,4 +74,6 @@ jobs:
          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
          images: |
             ${{ secrets.AZURE_REGISTRY_LOGIN_SERVER }}/prometheus:${{ github.sha }}
+            
+            #test
 
