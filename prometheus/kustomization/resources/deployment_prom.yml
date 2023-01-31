@@ -23,23 +23,23 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9090"
     spec:
-    containers:
-      - image: atiftaqi/prometheus:prometheus1.1
-        name: prom
-        args:
-        - '--config.file=/prometheus.yml'
-        ports:
-        - containerPort: 9090
-        volumeMounts:
-        - name: prometheus-persistent-storage-store
-          mountPath: prometheus_data/
-        - name: prometheus-script
-          mountPath: /prometheus.yml
-          subPath: prometheus.yml  
-    volumes:
-      - name: prometheus-persistent-storage-store
-        persistentVolumeClaim:
-          claimName: prom-store-pvc
-      - name: prometheus-script
-        configMap:
-          name: prometheus-config
+     containers:
+     - image: atiftaqi/prometheus:prometheus1.1
+       name: prom
+       args:
+       - '--config.file=/prometheus.yml'
+       ports:
+       - containerPort: 9090
+       volumeMounts:
+       - name: prometheus-persistent-storage-store
+         mountPath: prometheus_data/
+       - name: prometheus-script
+         mountPath: /prometheus.yml
+         subPath: prometheus.yml  
+     volumes:
+     - name: prometheus-persistent-storage-store
+       persistentVolumeClaim:
+         claimName: prom-store-pvc
+     - name: prometheus-script
+       configMap:
+         name: prometheus-config
