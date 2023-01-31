@@ -9,6 +9,7 @@ resources:
   - resources/service-account_prom.yml
   - resources/ClusterRoleBinding_prom.yml
   - resources/configmap_prom.yml
+  - resources/scrape-kubelet_prom.yml
   - resources/scrape_cAdvisor_prom.yml
   - resources/scrape_APIServer_prom.yml
   - resources/scrape-pods_prom.yml
