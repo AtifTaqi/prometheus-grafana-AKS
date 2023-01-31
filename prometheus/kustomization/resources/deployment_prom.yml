@@ -42,4 +42,4 @@ spec:
           claimName: prom-store-pvc
       - name: prometheus-script
         configMap:
-          name: prom-script
+          name: prometheus-config
