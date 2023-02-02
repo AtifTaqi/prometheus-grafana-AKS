@@ -7,3 +7,5 @@ resources:
   - resources/svc_grafana.yml
   - resources/pvc_grafana.yml
   - resources/deployment_grafana.yml
+
+  #test
