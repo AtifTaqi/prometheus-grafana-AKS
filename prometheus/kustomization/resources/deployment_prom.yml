@@ -25,6 +25,7 @@ spec:
     spec:
      containers:
      - image: atiftaqi/prometheus:prometheus1.1
+       
        name: prom
        args:
        - '--config.file=/prometheus.yml'
@@ -35,7 +36,14 @@ spec:
          mountPath: prometheus_data/
        - name: prometheus-script
          mountPath: /prometheus.yml
-         subPath: prometheus.yml  
+         subPath: prometheus.yml
+       resources:
+       requests:
+        memory: "64Mi"
+        cpu: "250m"
+       limits:
+        memory: "128Mi"
+        cpu: "500m"  
      volumes:
      - name: prometheus-persistent-storage-store
        persistentVolumeClaim:
